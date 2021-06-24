@@ -1,0 +1,36 @@
+<h1>Contests#show</h1>
+<p>Find me in app/views/contests/show.html.erb</p>
+
+<h1>こんにちは、<%= current_user.id %>さん</h1>
+
+<table class="table">
+  <tr><th width="200">Id</th>
+    <td><%= @contest.id %></td></tr>
+  <tr><th>title</th>
+    <td><%= @contest.title %></td></tr>
+  </tr>
+</table>
+
+<table>
+
+  <tr>
+    <th>id</th>
+    <th>title</th>
+    <th>statement</th>
+    <th>answer</th>
+  </tr>
+
+  <% if @contest.problems != nil then %>
+    <% @contest.problems.each do |obj| %>
+      <tr>
+        <td><%= obj.id %></td>
+        <td><%= obj.title %></td>
+        <td><%= obj.statement %></td>
+        <td><%= obj.answer %></td>
+      </tr>
+    <% end %>
+  <% end %>
+
+</table>
+
+<p class="link"><a href="/contests">contest_index</a></p>

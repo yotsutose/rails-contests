@@ -1,0 +1,25 @@
+<h1>Problems#add</h1>
+<p>Find me in app/views/problems/add.html.erb</p>
+
+
+<%= form_for(@problem, url:{controller:'problems', action:'add'}) do |form| %>
+  <div class="form-group">
+    <label for="title">タイトル</label>
+    <%= form.text_field :title,{class:"form-control"} %>
+  </div>
+  <div class="form-group">
+    <label for="author">問題文</label>
+    <%= form.text_field :statement,{class:"form-control"} %>
+  </div>
+  <div class="form-group">
+    <label for="author">ans</label>
+    <%= form.text_field :answer,{class:"form-control"} %>
+  </div>
+  <div class="form-group">
+    <label for="author">contestのid</label>
+    <%= form.text_field :contest_id,{class:"form-control"} %>
+  </div>
+  <%= form.submit "問題の保存" %>
+<% end %>
+
+<p class="link"><a href="/problems">prob_index</a></p>

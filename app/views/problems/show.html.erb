@@ -1,0 +1,30 @@
+<h1>Problems#show</h1>
+<p>Find me in app/views/problems/show.html.erb</p>
+
+<h1>こんにちは、<%= current_user.id %>さん</h1>
+
+<table class="table">
+  <tr><th width="200">Id</th>
+    <td><%= @problem.id %></td></tr>
+  <tr><th>title</th>
+    <td><%= @problem.title %></td></tr>
+  <tr><th>statement</th>
+    <td><%= @problem.statement %></td></tr>
+  <tr><th>contest</th>
+    <td><%= @problem.contest.id %></td></tr>
+  </tr>
+</table>
+
+<p>=================================================</p>
+
+<p>答えを送りましょう</p>
+
+<%= form_for(@submission, url:{controller:'problems', action:'add_submission'}) do |f| %>
+  <%= f.hidden_field :uId, :value => current_user.id %>
+  <%= f.hidden_field :pId, :value => @problem.id %>
+  <%= f.text_field :answer %>
+  
+  <%= f.submit "答えの送信" %>
+<% end %>
+
+<p class="link"><a href="/problems">prob_index</a></p>

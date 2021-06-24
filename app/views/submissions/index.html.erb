@@ -1,0 +1,33 @@
+<h1>Submissions#index</h1>
+<p>Find me in app/views/submissions/index.html.erb</p>
+
+
+<table class="table">
+
+  <tr>
+    <th>at</th>
+    <th>uId</th>
+    <th>pId</th>
+    <th>yourANS</th>
+    <th>state</th>
+    <th>link</th>
+    <th>link</th>
+  </tr>
+
+  <% @submissions.each do |obj| %>
+    <tr>
+      <td width="180px"><%= obj.created_at.to_s(:datetime_jp) %></td>
+      <td><%= obj.uId %></td>
+      <td><%= obj.pId %></td>
+      <td><%= obj.answer %></td>
+      <td><%= obj.state %></td>
+      <td><a href="/problems/<%= obj.pId %>">問題へ</td>
+      <td><a href="/submissions/<%= obj.id %>">提出へ</td>
+    </tr>
+  <% end %>
+
+</table>
+
+<p><a href="/">root/</a></p>
+<p><a href="/submissions">root/submissions</a></p>
+<p><a href="/problems/">root/problems/</a></p>
